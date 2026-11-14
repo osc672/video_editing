@@ -1,0 +1,47 @@
+# --- python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+*.db
+*.sqlite
+*.sqlite3
+
+# --- effects engine venv ---
+backend/vendor/effects/.venv/
+
+# --- runtime storage & media ---
+backend/storage/uploads/
+backend/storage/thumbs/
+backend/storage/renders/
+backend/storage/subtitles/
+backend/storage/previews/
+backend/storage/images/
+backend/storage/inspect_reels/
+backend/storage/*.db
+backend/storage/*.sqlite
+*.mp4
+*.mov
+*.avi
+*.m4v
+*.webm
+
+# --- scratch / temp / logs ---
+scratch/
+*.log
+
+# --- frontend ---
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.vite/
+frontend/.vite/
+
+# --- editors / os ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

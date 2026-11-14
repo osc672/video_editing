@@ -1,0 +1,656 @@
+{
+  "categories": [
+    "Camera",
+    "Text/Headline",
+    "UI/Social",
+    "Lists/Data",
+    "Reels/Images",
+    "Grade/Transitions",
+    "Fun"
+  ],
+  "templates": [
+    {
+      "number": 1,
+      "fx": "noise",
+      "name": "The Noise",
+      "category": "Reels/Images",
+      "description": "Reels pile up behind your head, one every quarter second.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "size", "label": "Card size", "type": "number", "default": "0.34" }
+      ]
+    },
+    {
+      "number": 2,
+      "fx": "lineup",
+      "name": "The Lineup",
+      "category": "Lists/Data",
+      "description": "Numbered tiles fan out in an arc above your head.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Tile names", "type": "list", "default": "Hook|Proof|Caption|Cut|Broll" }
+      ]
+    },
+    {
+      "number": 3,
+      "fx": "locked-on",
+      "name": "Locked On",
+      "category": "Camera",
+      "description": "Corner brackets snap onto your face and the camera follows you.",
+      "needs_images": false,
+      "options": [
+        { "key": "zoom", "label": "Zoom", "type": "number", "default": "1.35" },
+        { "key": "text", "label": "Tag", "type": "text", "default": "LOCKED ON" }
+      ]
+    },
+    {
+      "number": 4,
+      "fx": "orbit",
+      "name": "Orbit",
+      "category": "Reels/Images",
+      "description": "Your reels circle your head: in front at the bottom, behind you at the top.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "count", "label": "How many", "type": "number", "default": "6" },
+        { "key": "speed", "label": "Speed", "type": "number", "default": "1.9" },
+        { "key": "size", "label": "Card size", "type": "number", "default": "0.2" }
+      ]
+    },
+    {
+      "number": 5,
+      "fx": "lean-in",
+      "name": "Lean-In",
+      "category": "Camera",
+      "description": "A fast punch-in on one word.",
+      "needs_images": false,
+      "options": [
+        { "key": "zoom", "label": "Zoom (max 2)", "type": "number", "default": "1.45" },
+        { "key": "speed", "label": "Speed", "type": "number", "default": "0.18" }
+      ]
+    },
+    {
+      "number": 6,
+      "fx": "backdrop-word",
+      "name": "Backdrop Word",
+      "category": "Text/Headline",
+      "description": "A giant word drops in behind you.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Word", "type": "text", "default": "VAIBHAV" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#E5252A" },
+        { "key": "font", "label": "Font", "type": "enum", "default": "bold", "enum_values": ["bold", "serif"] }
+      ]
+    },
+    {
+      "number": 7,
+      "fx": "spotlight",
+      "name": "Spotlight",
+      "category": "Camera",
+      "description": "Kills the lights, keeps you lit. Look=sparkle gives the golden glitter spotlight.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Word behind you", "type": "text", "default": "CLAUDE" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#FFD60A" },
+        { "key": "push", "label": "Push in", "type": "number", "default": "1.1" },
+        { "key": "look", "label": "Look", "type": "enum", "default": "default", "enum_values": ["default", "sparkle"] }
+      ]
+    },
+    {
+      "number": 8,
+      "fx": "the-bill",
+      "name": "The Bill",
+      "category": "Lists/Data",
+      "description": "Prints your instructions like a ticket into the wall above your head.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Lines", "type": "list", "default": "ORDER #1021|1x orbit|1x spotlight|cut the dead air|TOTAL: 1 prompt" }
+      ]
+    },
+    {
+      "number": 9,
+      "fx": "moody",
+      "name": "Moody",
+      "category": "Grade/Transitions",
+      "description": "A moody colour grade: darker, softer, teal shadows.",
+      "needs_images": false,
+      "options": [
+        { "key": "grade", "label": "Grade", "type": "enum", "default": "moody", "enum_values": ["moody", "bw", "warm", "cool", "pop"] }
+      ]
+    },
+    {
+      "number": 10,
+      "fx": "swipe",
+      "name": "Swipe",
+      "category": "Grade/Transitions",
+      "description": "A before and after slider sweeps across you.",
+      "needs_images": false,
+      "options": [
+        { "key": "grade", "label": "After look", "type": "enum", "default": "moody", "enum_values": ["moody", "bw", "warm", "cool", "pop"] }
+      ]
+    },
+    {
+      "number": 11,
+      "fx": "todo",
+      "name": "The To-Do",
+      "category": "Lists/Data",
+      "description": "A checklist card beside your head that ticks off as you talk.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Items", "type": "list", "default": "drop your video into Claude|install the skill|type /effects" },
+        { "key": "ticks", "label": "Tick times (seconds)", "type": "list", "default": "0.6|1.6|2.6" },
+        { "key": "title", "label": "Title", "type": "text", "default": "TO DO" }
+      ]
+    },
+    {
+      "number": 12,
+      "fx": "comment-box",
+      "name": "Comment Box",
+      "category": "UI/Social",
+      "description": "An Instagram comment bar types your word and posts it.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Comment", "type": "text", "default": "EFFECTS" }
+      ]
+    },
+    {
+      "number": 13,
+      "fx": "tap",
+      "name": "The Tap",
+      "category": "UI/Social",
+      "description": "A Follow button pops up and flips to Following.",
+      "needs_images": false,
+      "options": [
+        { "key": "at", "label": "Flip at (seconds)", "type": "number", "default": "1.4" },
+        { "key": "x", "label": "X position (0-1)", "type": "number", "default": "0.7" },
+        { "key": "y", "label": "Y position (0-1)", "type": "number", "default": "0.55" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#7C5CFF" }
+      ]
+    },
+    {
+      "number": 14,
+      "fx": "pause-point",
+      "name": "Pause & Point",
+      "category": "Fun",
+      "description": "Freezes the frame and points at something with a hand-drawn arrow.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Label", "type": "text", "default": "look here" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#FF3B30" },
+        { "key": "label_x", "label": "Label X (0-1)", "type": "number", "default": "0.72" }
+      ]
+    },
+    {
+      "number": 15,
+      "fx": "uninstall",
+      "name": "Uninstall",
+      "category": "Fun",
+      "description": "A glitchy uninstall bar that breaks the frame apart.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Label", "type": "text", "default": "Uninstalling..." }
+      ]
+    },
+    {
+      "number": 16,
+      "fx": "reel-frame",
+      "name": "Reel Frame",
+      "category": "UI/Social",
+      "description": "Your video shrinks into an Instagram reel card.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Handle", "type": "text", "default": "@your.handle" }
+      ]
+    },
+    {
+      "number": 17,
+      "fx": "shortcut-rain",
+      "name": "Shortcut Rain",
+      "category": "Fun",
+      "description": "Keyboard keys rain down behind you.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Keys", "type": "list", "default": "cmd|/|C|V|Z|esc|tab|shift|enter|opt" },
+        { "key": "count", "label": "How many", "type": "number", "default": "26" }
+      ]
+    },
+    {
+      "number": 18,
+      "fx": "reject-stamp",
+      "name": "Reject Stamp",
+      "category": "Fun",
+      "description": "A big red stamp slams onto the screen.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Stamp text", "type": "text", "default": "REJECTED" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#FF2D20" },
+        { "key": "angle", "label": "Angle", "type": "number", "default": "12" },
+        { "key": "y", "label": "Y position (0-1)", "type": "number", "default": "0.5" }
+      ]
+    },
+    {
+      "number": 19,
+      "fx": "countdown-flip",
+      "name": "Countdown Flip",
+      "category": "Lists/Data",
+      "description": "A 3, 2, 1 flip clock above your head.",
+      "needs_images": false,
+      "options": [
+        { "key": "from", "label": "Count from", "type": "number", "default": "3" }
+      ]
+    },
+    {
+      "number": 20,
+      "fx": "rabbit-hole",
+      "name": "Rabbit Hole",
+      "category": "Grade/Transitions",
+      "description": "The frame tunnels into itself, spinning.",
+      "needs_images": false,
+      "options": [
+        { "key": "ratio", "label": "Tunnel ratio", "type": "number", "default": "0.62" },
+        { "key": "speed", "label": "Speed", "type": "number", "default": "0.8" },
+        { "key": "spin", "label": "Spin", "type": "number", "default": "10" }
+      ]
+    },
+    {
+      "number": 21,
+      "fx": "cover-star",
+      "name": "Cover Star",
+      "category": "Fun",
+      "description": "You become a magazine cover. Look=editorial gives a soft film look.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Masthead", "type": "text", "default": "VIBE" },
+        { "key": "lines", "label": "Cover lines", "type": "list", "default": "51 effects|you can steal|no editor|needed" },
+        { "key": "issue", "label": "Issue line", "type": "text", "default": "THE AI ISSUE · 2026" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#FFFFFF" },
+        { "key": "look", "label": "Look", "type": "enum", "default": "default", "enum_values": ["default", "editorial"] },
+        { "key": "accent", "label": "Accent colour", "type": "color", "default": "#FF3B30" },
+        { "key": "right", "label": "Right lines", "type": "list", "default": "the art of the|effortless edit" },
+        { "key": "lines_y", "label": "Cover lines Y", "type": "number", "default": "0.575" },
+        { "key": "right_y", "label": "Right lines Y", "type": "number", "default": "0.715" }
+      ]
+    },
+    {
+      "number": 22,
+      "fx": "scribble",
+      "name": "Scribble",
+      "category": "Fun",
+      "description": "Marker doodles draw themselves around you.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Label", "type": "text", "default": "me!" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#FFC700" }
+      ]
+    },
+    {
+      "number": 23,
+      "fx": "glass-widgets",
+      "name": "Glass Widgets",
+      "category": "UI/Social",
+      "description": "Frosted glass widgets float around your head.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Big number", "type": "text", "default": "197K" },
+        { "key": "name", "label": "Name", "type": "text", "default": "Creator" },
+        { "key": "handle", "label": "Handle", "type": "text", "default": "@creator" },
+        { "key": "look", "label": "Look", "type": "enum", "default": "default", "enum_values": ["default", "simple"] }
+      ]
+    },
+    {
+      "number": 24,
+      "fx": "red-collage",
+      "name": "Red Collage",
+      "category": "Text/Headline",
+      "description": "Original video colors (or B&W), a giant red word behind, kinetic type stacked beside you.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Big red word", "type": "text", "default": "VAIBHAV" },
+        { "key": "color", "label": "Word Colour", "type": "color", "default": "#E5252A" },
+        { "key": "bw", "label": "Black & White video", "type": "bool", "default": false },
+        { "key": "lines", "label": "Lines (optional)", "type": "list", "default": "" },
+        { "key": "tag", "label": "Corner tag (optional)", "type": "text", "default": "" }
+      ]
+    },
+    {
+      "number": 25,
+      "fx": "split-headline",
+      "name": "Split Headline",
+      "category": "Text/Headline",
+      "description": "A headline card slides down and pushes you into the bottom of the frame.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Headline lines", "type": "list", "default": "Claude|edits my|reels." },
+        { "key": "hl", "label": "Highlighted word", "type": "text", "default": "edits" },
+        { "key": "pill", "label": "Pill label", "type": "text", "default": "in seconds" }
+      ]
+    },
+    {
+      "number": 26,
+      "fx": "pastel-word",
+      "name": "Pastel Word",
+      "category": "UI/Social",
+      "description": "A soft lavender backdrop, a giant word behind you and a profile card that gets followed.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Giant word", "type": "text", "default": "REELS" },
+        { "key": "name", "label": "Name", "type": "text", "default": "Vibha" },
+        { "key": "handle", "label": "Handle", "type": "text", "default": "@vibha.in.progress" }
+      ]
+    },
+    {
+      "number": 27,
+      "fx": "check-pills",
+      "name": "Check Pills",
+      "category": "Reels/Images",
+      "description": "Grid-paper room, your reels pinned behind you and blue pills that get clicked.",
+      "needs_images": true,
+      "options": [
+        { "key": "text", "label": "Pills", "type": "list", "default": "Hook|Captions|Cuts|B-roll" },
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" }
+      ]
+    },
+    {
+      "number": 28,
+      "fx": "timeline",
+      "name": "Timeline",
+      "category": "Fun",
+      "description": "A dark red film grade with an editing timeline, a REC timecode and a glowing playhead.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Timeline title", "type": "text", "default": "EFFECTS" },
+        { "key": "sub", "label": "Subtitle", "type": "text", "default": "timeline by Claude" },
+        { "key": "tc", "label": "Timecode", "type": "text", "default": "REC" }
+      ]
+    },
+    {
+      "number": 29,
+      "fx": "headline-box",
+      "name": "Headline Box",
+      "category": "Text/Headline",
+      "description": "A punch-in with a clean two-line headline, the second line in a white box.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Headline lines", "type": "list", "default": "How I got Claude|to edit my reels." },
+        { "key": "zoom", "label": "Zoom", "type": "number", "default": "1.2" }
+      ]
+    },
+    {
+      "number": 30,
+      "fx": "profile-wall",
+      "name": "Profile Wall",
+      "category": "Reels/Images",
+      "description": "Your profile grid fills the wall behind you while a counter ticks up.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "count", "label": "View count", "type": "text", "default": "197000" },
+        { "key": "label", "label": "Counter label", "type": "text", "default": "views" }
+      ]
+    },
+    {
+      "number": 31,
+      "fx": "tier-list",
+      "name": "Tier List",
+      "category": "Lists/Data",
+      "description": "A tier list drops in front of you and Claude flies into S tier.",
+      "needs_images": false,
+      "options": [
+        { "key": "title", "label": "Title", "type": "text", "default": "best way to edit a reel?" },
+        { "key": "item", "label": "Your item", "type": "text", "default": "Claude" },
+        { "key": "others", "label": "Other items", "type": "list", "default": "templates|timelines|apps|doing it by hand" }
+      ]
+    },
+    {
+      "number": 32,
+      "fx": "broll-split",
+      "name": "B-Roll Split",
+      "category": "Reels/Images",
+      "description": "Split screen: B-roll on top with a price-tag sticker, you on the bottom.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "B-roll clips / covers", "type": "images", "default": "" },
+        { "key": "text", "label": "Price tag", "type": "text", "default": "4 hrs → 4 min" }
+      ]
+    },
+    {
+      "number": 33,
+      "fx": "phone-fan",
+      "name": "Phone Fan",
+      "category": "Reels/Images",
+      "description": "Your reels fan out like a hand of phones in front of you, under a two-line headline.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "text", "label": "Headline lines", "type": "list", "default": "51 effects.|zero editing apps." }
+      ]
+    },
+    {
+      "number": 34,
+      "fx": "dot-reveal",
+      "name": "Dot Reveal",
+      "category": "Grade/Transitions",
+      "description": "Your shot builds itself out of glowing dots, then snaps into the full picture.",
+      "needs_images": false,
+      "options": [
+        { "key": "color", "label": "Dot colour", "type": "color", "default": "#00E5FF" },
+        { "key": "cell", "label": "Dot size", "type": "number", "default": "0.017" }
+      ]
+    },
+    {
+      "number": 35,
+      "fx": "headline-wall",
+      "name": "Headline Wall",
+      "category": "Lists/Data",
+      "description": "Your own reel headlines pile up behind your head, then a total pops in front.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Headlines (headline::meta per row)", "type": "list", "default": "Protect your personal data with Claude::197K views|Easiest no-code scroll animation::124K views|How to make your resume un-rejectable::83K views|Jev, the new AI model::40K views|Scrape LinkedIn automatically::38K views" },
+        { "key": "total", "label": "Total", "type": "text", "default": "672K" },
+        { "key": "label", "label": "Total label", "type": "text", "default": "views from 5 reels" }
+      ]
+    },
+    {
+      "number": 36,
+      "fx": "checklist",
+      "name": "Checklist",
+      "category": "Lists/Data",
+      "description": "A Claude task list builds under your chin: each step spins, then ticks green.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Steps (step::meta per row)", "type": "list", "default": "Found your face::every frame|Cut you out of the room::AI mask|Put the text behind you::depth|Graded the colour::warm|Rendered in 4K::2160p" },
+        { "key": "title", "label": "Title", "type": "text", "default": "Claude is editing your clip" }
+      ]
+    },
+    {
+      "number": 37,
+      "fx": "liquid-glass-graph",
+      "name": "Liquid Glass Graph",
+      "category": "Lists/Data",
+      "description": "A liquid glass card floats under your chin while a graph climbs and a number counts up.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Label", "type": "text", "default": "RETENTION" },
+        { "key": "from", "label": "From", "type": "text", "default": "0" },
+        { "key": "to", "label": "To", "type": "text", "default": "59%" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#34D399" },
+        { "key": "look", "label": "Look", "type": "enum", "default": "default", "enum_values": ["default", "bento"] },
+        { "key": "donut", "label": "Donut (value::label)", "type": "text", "default": "29%::ERASE share" },
+        { "key": "kpi", "label": "KPI (value::label)", "type": "text", "default": "672K::views · top 7 reels" },
+        { "key": "bars", "label": "Bars (v1|v2|v3::label)", "type": "text", "default": "197|140|124::top reels · K views" }
+      ]
+    },
+    {
+      "number": 38,
+      "fx": "carousel-spin",
+      "name": "Carousel Spin",
+      "category": "Reels/Images",
+      "description": "Your reels spin around you in a 3D carousel, then slow to a stop.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "count", "label": "How many", "type": "number", "default": "8" },
+        { "key": "size", "label": "Card size", "type": "number", "default": "0.3" },
+        { "key": "turns", "label": "Turns", "type": "number", "default": "1.1" }
+      ]
+    },
+    {
+      "number": 39,
+      "fx": "match-cut",
+      "name": "Match Cut",
+      "category": "Text/Headline",
+      "description": "News pages cut on one word, locked in place behind your head.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Word", "type": "text", "default": "Claude" },
+        { "key": "color", "label": "Box colour", "type": "color", "default": "#FF3B30" }
+      ]
+    },
+    {
+      "number": 40,
+      "fx": "apple-toggles",
+      "name": "Apple Toggles",
+      "category": "Lists/Data",
+      "description": "An iPhone settings card flips its switches on, one line at a time.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Rows", "type": "list", "default": "One clip|Type /effects|Zero editing apps" },
+        { "key": "ticks", "label": "Tick times (seconds)", "type": "list", "default": "0.5|1.4|2.3" },
+        { "key": "color", "label": "Switch colour", "type": "color", "default": "#34C759" },
+        { "key": "pos", "label": "Position", "type": "enum", "default": "above", "enum_values": ["above", "below"] },
+        { "key": "overlap", "label": "Overlap", "type": "number", "default": "0.08" },
+        { "key": "zoom", "label": "Zoom", "type": "number", "default": "1.12" }
+      ]
+    },
+    {
+      "number": 41,
+      "fx": "led-sign",
+      "name": "LED Sign",
+      "category": "Text/Headline",
+      "description": "The lights drop and a glowing LED sign types itself out behind you.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Sign lines", "type": "list", "default": "CLAUDE|51 EFFECTS|ONE CLIP" },
+        { "key": "color", "label": "Colour", "type": "color", "default": "#FF2D55" },
+        { "key": "push", "label": "Push in", "type": "number", "default": "1.08" }
+      ]
+    },
+    {
+      "number": 42,
+      "fx": "slow-push",
+      "name": "Slow Push",
+      "category": "Camera",
+      "description": "A slow cinematic push-in to your face while the room melts out of focus.",
+      "needs_images": false,
+      "options": [
+        { "key": "zoom", "label": "Zoom (max 2)", "type": "number", "default": "1.6" },
+        { "key": "blur", "label": "Background blur", "type": "number", "default": "0.006" }
+      ]
+    },
+    {
+      "number": 43,
+      "fx": "over-the-shoulder-zoom",
+      "name": "Over-the-Shoulder Zoom",
+      "category": "Camera",
+      "description": "The camera pushes into a corner and a see-through glass graph pops beside your head.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Labels (two)", "type": "list", "default": "RETENTION|SUBSCRIBERS" },
+        { "key": "to", "label": "Numbers (two)", "type": "list", "default": "197K|672K" },
+        { "key": "zoom", "label": "Zoom (max 2)", "type": "number", "default": "2.0" }
+      ]
+    },
+    {
+      "number": 44,
+      "fx": "messages",
+      "name": "Messages",
+      "category": "UI/Social",
+      "description": "iMessage notifications pop in one after another, stacking up.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Messages", "type": "list", "default": "the reel is live|clip it in 3 taps|one prompt only|shipping it now" },
+        { "key": "title", "label": "App title", "type": "text", "default": "Messages" },
+        { "key": "y", "label": "Y position (0-1)", "type": "number", "default": "0.61" }
+      ]
+    },
+    {
+      "number": 45,
+      "fx": "place-in-grid",
+      "name": "Place In Grid",
+      "category": "UI/Social",
+      "description": "You shrink into the centre tile of your 3x3 profile grid with view counts.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "views", "label": "View counts (nine)", "type": "list", "default": "12K|8K|22K|5K|31K|9K|14K|6K|197K" }
+      ]
+    },
+    {
+      "number": 46,
+      "fx": "tape-label",
+      "name": "Tape Label",
+      "category": "Text/Headline",
+      "description": "A level strip of yellow tape with your line lands on your chest.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Your line", "type": "text", "default": "your own reels" }
+      ]
+    },
+    {
+      "number": 47,
+      "fx": "select-resize",
+      "name": "Select & Resize",
+      "category": "UI/Social",
+      "description": "A blue selection box grabs your number and a cursor drags it bigger.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Number", "type": "text", "default": "2X" }
+      ]
+    },
+    {
+      "number": 48,
+      "fx": "wave-trim",
+      "name": "Wave Trim",
+      "category": "Grade/Transitions",
+      "description": "A dark panel above your head shows your voice; the silent parts collapse away.",
+      "needs_images": false,
+      "options": []
+    },
+    {
+      "number": 49,
+      "fx": "huge-strike",
+      "name": "Huge Strike",
+      "category": "Text/Headline",
+      "description": "One huge serif word fills the wall behind you, then a red line crosses it out.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Word", "type": "text", "default": "8 HOURS" },
+        { "key": "at", "label": "Strike at (seconds in)", "type": "number", "default": "0.6" }
+      ]
+    },
+    {
+      "number": 50,
+      "fx": "crayon-write",
+      "name": "Crayon Write",
+      "category": "Text/Headline",
+      "description": "A red crayon writes your word behind your head, then underlines it and flies off.",
+      "needs_images": false,
+      "options": [
+        { "key": "text", "label": "Word", "type": "text", "default": "NOBODY" }
+      ]
+    },
+    {
+      "number": 51,
+      "fx": "fan-build",
+      "name": "Fan Build",
+      "category": "Reels/Images",
+      "description": "Your reel covers deal into a fan behind your head, one card at a time.",
+      "needs_images": true,
+      "options": [
+        { "key": "images", "label": "Reel covers / screenshots", "type": "images", "default": "" },
+        { "key": "count", "label": "How many", "type": "number", "default": "13" }
+      ]
+    }
+  ]
+}

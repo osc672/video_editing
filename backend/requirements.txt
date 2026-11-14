@@ -1,0 +1,17 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+SQLAlchemy==2.0.36
+PyMySQL==1.1.1
+cryptography==44.0.0
+PyJWT==2.10.1
+python-multipart==0.0.20
+pydantic==2.10.4
+pydantic-settings==2.7.0
+Pillow==11.1.0
+httpx==0.28.1
+faster-whisper==1.1.0
+requests>=2.32.0
+# PyAV 15+ dropped the `metadata_errors` kwarg that faster-whisper's decoder
+# still passes, which breaks the vendored engine's scripts/words.py.
+# 13.1.0 is the last version with a prebuilt wheel for Python 3.12.
+av==13.1.0
