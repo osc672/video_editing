@@ -52,6 +52,29 @@ app.mount("/static", StaticFiles(directory=str(static_root)), name="static")
 @app.on_event("startup")
 def on_startup() -> None:
     Base.metadata.create_all(bind=engine)
+    try:
+        from .seed.seed_templates import seed
+        seed()
+    except Exception as e:
+        print(f"[AI Reel Editor] Template seed notice: {e}")
+
+    try:
+        from .db import SessionLocal
+        from .models import User
+        from .security import hash_password
+        with SessionLocal() as db:
+            if db.query(User).count() == 0:
+                demo = User(
+                    name="Demo Creator",
+                    email="demo@reel.test",
+                    password_hash=hash_password("demo123"),
+                )
+                db.add(demo)
+                db.commit()
+                print("[AI Reel Editor] Initialized default demo user: demo@reel.test / demo123")
+    except Exception as e:
+        print(f"[AI Reel Editor] Demo user notice: {e}")
+
     setup = effect_engine.check_setup()
     if not setup["ready"]:
         print(

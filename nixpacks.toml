@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["python311", "ffmpeg", "libGL", "glib"]
+
+[phases.install]
+cmds = [
+    "python -m pip install --upgrade pip",
+    "pip install -r backend/requirements.txt",
+    "pip install numpy opencv-python-headless mediapipe"
+]
+
+[start]
+cmd = "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"

@@ -92,6 +92,13 @@ class Settings(BaseSettings):
     def origins(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
+    @property
+    def resolved_database_url(self) -> str:
+        url = os.environ.get("DATABASE_URL") or os.environ.get("MYSQL_URL") or self.database_url
+        if url.startswith("mysql://"):
+            url = url.replace("mysql://", "mysql+pymysql://", 1)
+        return url
+
 
 @lru_cache
 def get_settings() -> Settings:

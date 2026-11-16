@@ -9,7 +9,7 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from .config import settings
 
 engine = create_engine(
-    settings.database_url,
+    settings.resolved_database_url,
     pool_pre_ping=True,
     pool_recycle=280,
     pool_size=10,
