@@ -51,7 +51,11 @@ app.mount("/static", StaticFiles(directory=str(static_root)), name="static")
 
 @app.on_event("startup")
 def on_startup() -> None:
-    Base.metadata.create_all(bind=engine)
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        print(f"[AI Reel Editor] Table creation notice: {e}")
+
     try:
         from .seed.seed_templates import seed
         seed()

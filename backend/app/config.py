@@ -93,10 +93,31 @@ class Settings(BaseSettings):
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
     @property
+    def storage_dir(self) -> Path:
+        return STORAGE_DIR
+
+    @property
     def resolved_database_url(self) -> str:
-        url = os.environ.get("DATABASE_URL") or os.environ.get("MYSQL_URL") or self.database_url
+        url = (
+            os.environ.get("DATABASE_URL")
+            or os.environ.get("MYSQL_URL")
+            or os.environ.get("MYSQL_PRIVATE_URL")
+        )
+        if not url and os.environ.get("MYSQLHOST"):
+            user = os.environ.get("MYSQLUSER", "root")
+            pw = os.environ.get("MYSQLPASSWORD", "")
+            host = os.environ.get("MYSQLHOST")
+            port = os.environ.get("MYSQLPORT", "3306")
+            db = os.environ.get("MYSQLDATABASE", "railway")
+            url = f"mysql+pymysql://{user}:{pw}@{host}:{port}/{db}"
+
+        if not url:
+            url = self.database_url
+
         if url.startswith("mysql://"):
             url = url.replace("mysql://", "mysql+pymysql://", 1)
+        elif url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql+psycopg2://", 1)
         return url
 
 
