@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-const BASE = import.meta.env.VITE_API_URL || '/api'
+let rawBase = (import.meta.env.VITE_API_URL || '/api').trim()
+if (rawBase && !rawBase.startsWith('http://') && !rawBase.startsWith('https://') && !rawBase.startsWith('/')) {
+  rawBase = `https://${rawBase}`
+}
+const BASE = rawBase
 
 const client = axios.create({ baseURL: BASE, timeout: 60000 })
 
