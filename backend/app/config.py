@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     allowed_video_ext: str = ".mp4,.mov,.m4v,.webm,.mkv"
 
     # --- whisper --------------------------------------------------------
-    whisper_model: str = "small"
+    whisper_model: str = os.environ.get("WHISPER_MODEL", "base")
     whisper_device: str = "cpu"
     whisper_compute_type: str = "int8"
     whisper_prompt: str = (

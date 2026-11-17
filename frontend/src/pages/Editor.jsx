@@ -1017,6 +1017,15 @@ export default function Editor() {
 
         {/* center */}
         <main className="scroll-thin min-h-0 overflow-y-auto">
+          {project?.status === 'transcribing' && (
+            <div className="mb-3 flex items-center justify-between rounded-xl border border-cyan-glow/40 bg-cyan-glow/10 px-4 py-2.5 text-xs text-cyan-300 shadow-md">
+              <div className="flex items-center gap-2.5 font-medium">
+                <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-cyan-300 border-t-transparent" />
+                <span>⚡ AI is transcribing audio & generating reel captions... Please wait a few seconds.</span>
+              </div>
+              <span className="text-[10px] text-cyan-200/60 font-mono">Live Processing</span>
+            </div>
+          )}
 
           <div className="flex flex-col gap-3 lg:flex-row">
             <div className="panel shrink-0 p-4">
@@ -1058,9 +1067,32 @@ export default function Editor() {
 
               <div className="scroll-thin max-h-[300px] flex-1 overflow-y-auto p-2.5">
                 {effects.length === 0 && (
-                  <p className="px-3 py-8 text-center text-xs text-white/35">
-                    Pick a template on the left, then press “Add to timeline”.
-                  </p>
+                  <div className="my-2 rounded-xl border border-cyan-glow/40 bg-gradient-to-br from-cyan-glow/10 via-purple-500/10 to-transparent p-4 text-center">
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-cyan-glow/20 text-cyan-300 font-bold">⚡</span>
+                      <h3 className="text-sm font-bold text-white">1-Click Viral Reel Plan</h3>
+                    </div>
+                    <p className="mt-1 text-xs text-white/70">
+                      Auto-apply 3 viral templates timed directly to your speech:
+                    </p>
+                    <div className="my-2.5 flex flex-wrap items-center justify-center gap-1.5 text-[11px]">
+                      <span className="rounded-md bg-rose-500/20 px-2 py-0.5 font-medium text-rose-300 border border-rose-500/30">#06 Hook Word</span>
+                      <span className="text-white/40">➔</span>
+                      <span className="rounded-md bg-blue-500/20 px-2 py-0.5 font-medium text-blue-300 border border-blue-500/30">#23 Glass Stats</span>
+                      <span className="text-white/40">➔</span>
+                      <span className="rounded-md bg-emerald-500/20 px-2 py-0.5 font-medium text-emerald-300 border border-emerald-500/30">#27 Check Pills</span>
+                    </div>
+                    <button
+                      onClick={applyAllSuggestions}
+                      className="btn-accent mt-1 inline-flex items-center gap-2 px-4 py-2 text-xs font-bold shadow-lg shadow-cyan-glow/20 transition hover:scale-[1.02]"
+                    >
+                      <span>⚡</span>
+                      <span>Apply 1-Click Viral Plan</span>
+                    </button>
+                    <p className="mt-2 text-[10px] text-white/40">
+                      Or pick any individual template on the left and click "+ Add to timeline".
+                    </p>
+                  </div>
                 )}
 
                 <div className="space-y-2">

@@ -36,9 +36,6 @@ async def transcribe(
 ) -> dict:
     """Start transcription in the background and return immediately."""
     project = _owned_project(db, project_id, user)
-    if project.status == "transcribing":
-        raise HTTPException(status_code=409, detail="Transcription is already running.")
-
     project.status = "transcribing"
     db.commit()
 

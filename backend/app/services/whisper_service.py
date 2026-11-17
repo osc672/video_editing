@@ -38,13 +38,28 @@ def _load_model():
             return _model
         from faster_whisper import WhisperModel
 
-        _model = WhisperModel(
-            settings.whisper_model,
-            device=settings.whisper_device,
-            compute_type=settings.whisper_compute_type,
-        )
-        _model_key = key
-        return _model
+        candidates = [settings.whisper_model]
+        for fallback in ("base", "tiny"):
+            if fallback not in candidates:
+                candidates.append(fallback)
+
+        last_err = None
+        for model_name in candidates:
+            try:
+                print(f"[Whisper] Loading model '{model_name}' on {settings.whisper_device} ({settings.whisper_compute_type})...")
+                _model = WhisperModel(
+                    model_name,
+                    device=settings.whisper_device,
+                    compute_type=settings.whisper_compute_type,
+                )
+                _model_key = key
+                print(f"[Whisper] Model '{model_name}' loaded successfully.")
+                return _model
+            except Exception as e:
+                last_err = e
+                print(f"[Whisper] Warning: failed loading '{model_name}': {e}. Trying fallback...")
+
+        raise RuntimeError(f"Could not load any faster-whisper model: {last_err}")
 
 
 def decode_audio(video_path: str | Path) -> np.ndarray:

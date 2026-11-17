@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-let rawBase = (import.meta.env.VITE_API_URL || '/api').trim()
+let rawBase = (import.meta.env.VITE_API_URL || '').trim()
+if (!rawBase || rawBase === '/api') {
+  if (typeof window !== 'undefined' && window.location.hostname.includes('vercel.app')) {
+    rawBase = 'https://videoediting-production-4a3d041e.up.railway.app'
+  } else {
+    rawBase = rawBase || '/api'
+  }
+}
 if (rawBase && !rawBase.startsWith('http://') && !rawBase.startsWith('https://') && !rawBase.startsWith('/')) {
   rawBase = `https://${rawBase}`
 }

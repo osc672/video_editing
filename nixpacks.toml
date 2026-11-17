@@ -5,8 +5,10 @@ nixPkgs = ["python311", "ffmpeg", "libGL", "glib"]
 cmds = [
     "python -m pip install --upgrade pip",
     "pip install -r backend/requirements.txt",
-    "pip install numpy opencv-python-headless mediapipe"
+    "pip install numpy opencv-python-headless mediapipe",
+    "python -c 'from faster_whisper import WhisperModel; WhisperModel(\"base\", device=\"cpu\", compute_type=\"int8\")'"
 ]
 
 [start]
 cmd = "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+

@@ -76,6 +76,14 @@ def on_startup() -> None:
                 db.add(demo)
                 db.commit()
                 print("[AI Reel Editor] Initialized default demo user: demo@reel.test / demo123")
+
+            from .models import Project
+            stuck_projects = db.query(Project).filter(Project.status == "transcribing").all()
+            for sp in stuck_projects:
+                sp.status = "uploaded"
+            if stuck_projects:
+                db.commit()
+                print(f"[AI Reel Editor] Reset {len(stuck_projects)} stuck transcribing projects to uploaded.")
     except Exception as e:
         print(f"[AI Reel Editor] Demo user notice: {e}")
 
